@@ -1,36 +1,21 @@
-import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
-import Compteur from './Compteur';
-import Personnage from './Personnage';
+import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import HomeScreen from './screens/HomeScreen'
+import RandomizerScreen from './screens/RandomizerScreen'
 
+const Stack = createNativeStackNavigator()
 
 export default function App() {
-  const player = {
-    pseudo: "Ayoub",
-    rank: "silver",
-    age: 19
-  }
-  
-
   return (
-    <View style={styles.container}>
-      <Text style={{textAlign: 'center', fontSize:20, color:"blue"}}>Un petit pas pour l'homme, un grand pas pour le jeux vidéo!</Text>
-      <Text>Hello {player.pseudo}</Text>
-      <Compteur/>
-      <Personnage name="Rammus" />
-      <Personnage name="Olaf"/>
-
-      {/* <StatusBar style="auto" /> */}
-    </View>
-  );
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Randomizer" component={RandomizerScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
