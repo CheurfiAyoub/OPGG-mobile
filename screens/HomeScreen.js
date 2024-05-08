@@ -9,9 +9,14 @@ export default function HomeScreen() {
 
   return (
     <View style={styles.container}>
-      <View style={{ flex: 1}}>
+      <View style={{ flex: 1 }}>
+        <View style={{ position: 'absolute',top: 20, right: 10,zIndex: 1}}>
+          <TouchableOpacity style={styles.pdp} onPress={() => navigation.navigate('MyProfile')}>
+            <Image source={require('../assets/images/viego_pdp.png')}  style={styles.imgpdp}></Image>
+          </TouchableOpacity>
+        </View>
         <ImageBackground source={require('../assets/images/background.png')} resizeMode="cover" style={styles.header}>
-          <View style={{alignItems: 'center', justifyContent: 'center'}}>
+          <View >
             <Text style={styles.title}>OPGG-Mobile</Text>
           </View>
         </ImageBackground>
@@ -41,7 +46,9 @@ const styles = StyleSheet.create({
   },
   header: {
     flex: 1,
+    display: 'flex',
     justifyContent: 'center',
+    alignItems: 'center',
   },
   title: {
     color: '#E71FDF',
@@ -53,6 +60,23 @@ const styles = StyleSheet.create({
     marginTop: 50,
     paddingVertical: 10,
     paddingHorizontal: 50,
+
+  },
+  pdp: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+    alignItems: 'flex-start',
+
+
+    backgroundColor: 'rgba(16, 2, 2, 0.85)',
+    width: 65,
+    height: 65,
+    borderRadius: 50,
+  },
+  imgpdp: {
+    width: '100%',
+    height: '100%',
+    borderRadius: 50,
 
   }
 
