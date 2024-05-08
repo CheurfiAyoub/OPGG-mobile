@@ -27,7 +27,7 @@ export default function HomeScreen() {
           <Text style={{fontSize:30, color: 'white'}}>Classement</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button}>
-          <Text style={{fontSize:30, color: 'white'}}>Personnages</Text>
+          <Text style={{fontSize:30, color: 'white'}} onPress={() => navigation.navigate('Champions')}>Personnages</Text>
         </TouchableOpacity>
       </View>
     </View>
